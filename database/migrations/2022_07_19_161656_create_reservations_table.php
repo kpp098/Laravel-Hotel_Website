@@ -21,6 +21,7 @@ class CreateReservationsTable extends Migration
             $table->string("no_guest")->nullable();
             $table->string("date")->nullable();
             $table->string("time")->nullable();
+            $table->string("invoice")->nullable();
             $table->longText("message")->nullable();
             $table->timestamps();
         });

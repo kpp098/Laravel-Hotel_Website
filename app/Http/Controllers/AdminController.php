@@ -259,7 +259,7 @@ class AdminController extends Controller
 
 
         session()->flash('success', 'Chef added successfully !');
-        return back();
+        return redirect()->route('list_chefs');
     }
     public function menu_delete_process($id)
     {
@@ -344,7 +344,7 @@ class AdminController extends Controller
 
 
         session()->flash('success', 'Menu updated successfully !');
-        return redirect('menu_edit');
+        return redirect()->route('menu_edit', $id);
     }
 
 
@@ -458,11 +458,10 @@ class AdminController extends Controller
 
         $products = DB::table('carts')->where('invoice_no', $id)->get();
         $charges = DB::table('charges')->get();
-
+        // echo "<pre>";print_r($products);exit;
         $total_price = DB::table('carts')->where('invoice_no', $id)->sum('subtotal');
         $wihout_discount_price = $total_price;
         foreach ($products as $product) {
-
             $coupon_code = $product->coupon_id;
         }
         $coupon_code_price = DB::table('coupons')->where('code', $coupon_code)->value('percentage');

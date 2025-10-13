@@ -80,7 +80,7 @@
 
 
                         <button type="submit" class="btn btn-primary me-2">Update</button>
-                        <button class="btn btn-dark" href="{{ redirect('menu_edit') }}">Cancel</button>
+                        <button class="btn btn-dark" href="{{ route('food-menu') }}">Cancel</button>
                     </form>
                 </div>
             </div>

@@ -53,7 +53,6 @@ class HomeController extends Controller
     public function redirects()
     {
 
-
         if (!Auth::user()) {
 
             return redirect()->route('login');
@@ -119,7 +118,7 @@ class HomeController extends Controller
             $rates = DB::table('rates')->get();
 
             $product = array();
-
+            $per_rate = array();
 
             foreach ($rates as $rate) {
 
@@ -156,6 +155,7 @@ class HomeController extends Controller
             arsort($per_rate);
 
             $product_get = array();
+            $product_cart = array();
 
 
             foreach ($per_rate as $prod) {

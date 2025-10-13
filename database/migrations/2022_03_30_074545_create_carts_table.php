@@ -27,7 +27,7 @@ class CreateCartsTable extends Migration
             $table->string('shipping_address', 5000);
             $table->string('delivery_time', 120);
             $table->string('purchase_date', 250);
-            $table->string('coupon_date', 250);
+            $table->string('coupon_id', 250);
             $table->timestamps();
         });
     }

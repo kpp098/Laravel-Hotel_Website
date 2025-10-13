@@ -79,9 +79,10 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect()->route('redirects');
     })->name('dashboard');
 });
+
 
 
 
@@ -103,7 +104,7 @@ Route::get('/payment/success', [PaymentController::class, 'success'])->name('/pa
 
 Route::get('/admin/home', [AdminController::class, 'home'])->name('/admin/home');
 
-Route::get('/admin/food-menu', [AdminController::class, 'food_menu'])->name('/admin/food-menu');
+Route::get('/admin/food-menu', [AdminController::class, 'food_menu'])->name('food-menu');
 
 Route::get('/orders/process', [AdminController::class, 'orders_process'])->name('/orders/process');
 Route::get('/orders/cancel', [AdminController::class, 'orders_cancel'])->name('/orders/cancel');
@@ -111,7 +112,7 @@ Route::get('/orders/cancel', [AdminController::class, 'orders_cancel'])->name('/
 Route::get('/add/menu', [AdminController::class, 'add_menu'])->name('/add/menu');
 Route::get('/add/chef', [AdminController::class, 'add_chef'])->name('/add/chef');
 
-Route::get('/admin/chefs', [AdminController::class, 'chefs'])->name('/admin/chefs');
+Route::get('/admin/chefs', [AdminController::class, 'chefs'])->name('list_chefs');
 
 
 
@@ -135,7 +136,7 @@ Route::get('/menu/delete/{id}', [AdminController::class, 'menu_delete_process'])
 Route::get('/chef/delete/{id}', [AdminController::class, 'chef_delete_process'])->name('/chef/delete');
 
 
-Route::get('/menu/edit/{id}', [AdminController::class, 'menu_edit'])->name('/menu/edit');
+Route::get('/menu/edit/{id}', [AdminController::class, 'menu_edit'])->name('menu_edit');
 Route::get('/chef/edit/{id}', [AdminController::class, 'chef_edit'])->name('/chef/edit');
 
 Route::post('/menu/edit/process/{id}', [AdminController::class, 'menu_edit_process'])->name('/menu/edit/process');

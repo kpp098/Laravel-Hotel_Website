@@ -17,6 +17,9 @@ class CreateChefsTable extends Migration
             $table->id();
             $table->string("name")->nullable();
             $table->string("product_id")->nullable();
+            $table->string("email")->nullable();
+            $table->string("job_title")->nullable();
+            $table->string("image")->nullable();
             $table->string("product_name")->nullable();
             $table->string("facebook_link")->nullable();
             $table->string("twitter_link")->nullable();
